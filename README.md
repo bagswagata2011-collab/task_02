@@ -35,7 +35,7 @@ Language: Python 3.x
 
 Library: Pillow (PIL)
 
-Core Concepts:
+## Core Concepts:
 
 Pixel Manipulation
 
@@ -73,8 +73,8 @@ encrypted_image.png
 
 decrypted_image.png
 
-🧠 Algorithm Explanation
-🔑 Secret Key to Seed Conversion
+## 🧠 Algorithm Explanation
+# 🔑 Secret Key to Seed Conversion
 
 The secret key entered by the user is converted into a numeric seed by summing the ASCII values of its characters.
 
