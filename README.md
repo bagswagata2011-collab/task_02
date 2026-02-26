@@ -1,108 +1,64 @@
-🔐 Random Pixel Shuffling Image Encryption Decryption Tool
+# 🔐 Task_02 : Random Pixel Shuffling Image Encryption and Decryption Tool
 
-A Python-based Image Encryption and Decryption Tool that uses Random Pixel Shuffling with a user-defined secret key.
 
-This project demonstrates how pixel-level manipulation can be used to encrypt and decrypt images in a reversible way.
 
-📌 Project Overview
 
-This tool works by:
 
-Converting image pixels into a list
 
-Shuffling the pixels using a secret key
 
-Saving the shuffled image as encrypted output
 
-Reversing the shuffle using the same key to decrypt
 
-If the correct secret key is provided during decryption, the original image is restored.
 
-🚀 Features
+A deterministic image encryption and decryption tool built in Python using pixel-level manipulation.
+This project implements a secret key–based random pixel shuffling algorithm to securely scramble and restore images.
 
-🔑 Secret key-based encryption
+## 📌 Project Overview
 
-🔄 Fully reversible decryption
+This project demonstrates how deterministic randomness can be applied to image encryption.
 
-🖼 Pixel-level image manipulation
+Instead of modifying RGB values, the algorithm:
 
-🧠 Deterministic random shuffling using seed
+Extracts pixel data from the image
 
-💻 Simple terminal-based interface (No GUI)
+Uses a secret key to generate a reproducible random seed
 
-📦 Lightweight and easy to use
+Shuffles pixel positions during encryption
 
-🛠 Technologies Used
+Reverses the shuffle during decryption
 
-Python
+Correct key → Original image restored
+Wrong key → Image remains scrambled
 
-Pillow (PIL)
+## 🛠 Tech Stack
 
-Random Module
+Language: Python 3.x
 
-🧠 How It Works
-1️⃣ Secret Key to Seed Conversion
+Library: Pillow (PIL)
 
-The user enters a secret key.
+Core Concepts:
 
-The program converts each character of the key into its ASCII value and adds them together to generate a numeric seed.
+Pixel Manipulation
 
-Example:
+Random Seed Generation
 
-Key: abc
-a = 97
-b = 98
-c = 99
-Seed = 294
+Deterministic Shuffling
 
-This seed controls the random shuffle.
+Reversible Mapping Algorithm
 
-Same key → Same seed → Same shuffle order.
 
-2️⃣ Encryption Process
-
-Image pixels are extracted into a list.
-
-Random seed is set using the generated seed value.
-
-Pixels are shuffled randomly.
-
-New encrypted image is saved.
-
-The image becomes visually scrambled.
-
-3️⃣ Decryption Process
-
-Same secret key is entered.
-
-Same random seed is generated.
-
-Same shuffle order is recreated.
-
-Shuffle mapping is reversed.
-
-Original image is restored.
-
-If the wrong key is entered, the image remains scrambled.
-
-📂 Project Structure
-random-pixel-encryption/
-│
-├── main.py
-├── input_image.png
-├── encrypted_image.png
-├── decrypted_image.png
-└── README.md
-⚙ Installation
+## ⚙ Installation
 1️⃣ Clone the Repository
 git clone https://github.com/your-username/random-pixel-encryption.git
 cd random-pixel-encryption
-2️⃣ Install Dependencies
+2️⃣ Install Required Library
 pip install pillow
-▶ How to Run
+## ▶ Usage
+
+Run the program:
+
 python main.py
 
-Then:
+You will be prompted to:
 
 Enter image path
 
@@ -114,48 +70,89 @@ Choose:
 
 2 → Decrypt
 
-🔐 Security Note
+Output files generated:
 
-This project is for educational and academic purposes.
+encrypted_image.png
 
-It demonstrates:
+decrypted_image.png
 
-Deterministic randomness
+🧠 Algorithm Explanation
+🔑 Secret Key to Seed Conversion
 
-Reversible transformations
+The secret key entered by the user is converted into a numeric seed by summing the ASCII values of its characters.
 
-Pixel-level image manipulation
+Example:
 
-For real-world secure encryption, use:
+Key: abc
+ASCII: 97 + 98 + 99
+Seed: 294
 
-AES
+This ensures:
 
-RSA
+Same key → Same shuffle order
 
-Python cryptography libraries
+Different key → Different encryption
 
-🎓 Learning Outcomes
+## 🔄 Encryption Process
 
-By completing this project, you understand:
+Load image using Pillow
 
-Image processing using Pillow
+Convert image to RGB format
 
-Pixel extraction and manipulation
+Extract pixel data using getdata()
 
-Random seeding and reproducibility
+Convert pixels to a list
 
-Encryption and decryption logic
+Generate seed from secret key
 
-Reversible mapping algorithms
+Set random seed
 
-💡 Future Improvements
+Shuffle pixel list
+
+Reconstruct and save encrypted image
+
+The image structure becomes visually scrambled while pixel values remain unchanged.
+
+## 🔁 Decryption Process
+
+Regenerate seed using the same key
+
+Recreate the same shuffled index order
+
+Reverse the pixel mapping
+
+Restore original pixel arrangement
+
+Save decrypted image
+
+Because the random generator is seeded, the shuffle is reproducible and reversible.
+
+
+
+## 🚀 Future Improvements
 
 Multi-layer encryption (Shuffle + XOR)
 
-Block-wise scrambling
+Block-wise pixel scrambling
 
-Chaotic map encryption
+Chaotic map–based encryption
 
 GUI version
 
 Password strength validation
+
+Performance optimization for large images
+
+## 🎓 Learning Outcomes
+
+By completing this project, you gain understanding of:
+
+Image processing fundamentals
+
+Deterministic randomness
+
+Reversible algorithm design
+
+Seed-based encryption logic
+
+Practical implementation of cryptographic concepts
