@@ -46,11 +46,8 @@ Deterministic Shuffling
 Reversible Mapping Algorithm
 
 
-## ⚙ Installation
-1️⃣ Clone the Repository
-git clone https://github.com/your-username/random-pixel-encryption.git
-cd random-pixel-encryption
-2️⃣ Install Required Library
+
+## 2️⃣ Install Required Library
 pip install pillow
 ## ▶ Usage
 
